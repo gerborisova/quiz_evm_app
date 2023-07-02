@@ -1,10 +1,12 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const answer = "two";
+  const answer = "mining";
   const salt = "salt";
+  const question =
+    "What is the process of validating and adding transactions to the blockchain called?";
   const quiz = await ethers.deployContract("Quizzes", [
-    "one",
+    question,
     ethers.solidityPacked(["string", "string"], [answer, salt]),
     salt,
   ]);
