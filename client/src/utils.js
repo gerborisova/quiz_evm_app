@@ -147,10 +147,89 @@ const ABI = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "sendWei",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
     stateMutability: "payable",
     type: "receive",
   },
 ];
-const contractAddress = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
 
-export { ABI, contractAddress };
+const factoryABI = [
+  {
+    inputs: [],
+    stateMutability: "payable",
+    type: "constructor",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "contract Quizzes",
+        name: "quiz",
+        type: "address",
+      },
+    ],
+    name: "QuizCreated",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "question",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "answer",
+        type: "string",
+      },
+    ],
+    name: "createQuiz",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCreatedQuizzes",
+    outputs: [
+      {
+        internalType: "contract Quizzes[]",
+        name: "",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "quizzes",
+    outputs: [
+      {
+        internalType: "contract Quizzes",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+const contractAddress = "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00";
+const factoryContractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+
+export { ABI, contractAddress, factoryContractAddress, factoryABI };

@@ -48,13 +48,6 @@ describe("Quizzess", function () {
     const userBalance = await quiz.getBalance();
     expect(userBalance).to.be.equal(0);
   });
-  it("Should be reverted with AlreadyAwarded", async function () {
-    const { quiz } = await loadFixture(deployQuiz);
-    await quiz.guessAnswer("two");
-    await expect(quiz.guessAnswer("two")).to.be.revertedWith(
-      "You have alreqady been awarded"
-    );
-  });
   it("Should emit NotEnoughBalance() ", async function () {
     const { quizNoBalance } = await loadFixture(deployQuizWithNoBalance);
     await quizNoBalance.guessAnswer("two");

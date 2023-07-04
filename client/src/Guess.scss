@@ -12,6 +12,7 @@
   height: 20vmin;
   pointer-events: none;
 }
+
 .image-wrap {
   margin-top: 2%;
   justify-content: center;
@@ -29,15 +30,26 @@
 }
 
 .info-items {
+  width: 50%;
   margin-top: 5%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+.info-wrap-create {
+  color: #2c47c9;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 .info-div {
   flex-wrap: wrap;
   flex-direction: column;
-  width: 40%;
+  width: 20%;
   align-self: center;
   margin-top: 15%;
   color: #2c47c9;
@@ -50,6 +62,21 @@
 }
 .info-box {
   width: 90%;
+}
+.error-msg {
+  align-self: center;
+  margin-bottom: 10px;
+  color: red;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.correct-msg {
+  align-self: center;
+  margin-bottom: 10px;
+  color: limegreen;
+  font-size: 20px;
+  justify-content: center;
 }
 .mojito-btn {
   z-index: 4;
@@ -64,23 +91,47 @@
   border: none;
   border-radius: 20px;
 }
+.create-btn {
+  z-index: 4;
+  margin-top: 5%;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  font-family: "Righteous", cursive;
+  color: white;
+  background-color: #2c47c9;
+  border: none;
+  border-radius: 20px;
+}
 .utilities {
   color: white;
-
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 .guess-form {
-  background-color: #2c47c9;
+  background-color: white;
   padding: 7%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 5px solid #facb00;
+  border: 5px solid blue;
+}
+.create-form {
+  background-color: white;
+  padding: 7%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 5px solid blue;
 }
 
 .mojito-blender {
@@ -95,6 +146,7 @@
 }
 
 .market-title {
+  color: blue;
   align-self: center;
   margin-bottom: 10%;
 }
@@ -103,10 +155,12 @@
   height: 50px;
   font-size: 20px;
   font-family: "Righteous", cursive;
-  color: white;
+  color: blue;
+  color: blue;
   background-color: #facb00;
   border: none;
   border-radius: 20px;
+  margin-top: 10px;
 }
 .guess-submit .mojito-blender {
   background-color: #1d6756;
@@ -115,7 +169,7 @@
 .guess-input {
   margin-bottom: 20px;
   height: 50px;
-  border: none;
+  border: 3px solid blue;
   border-radius: 20px;
 }
 

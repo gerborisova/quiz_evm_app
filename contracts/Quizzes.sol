@@ -19,23 +19,19 @@ contract Quizzes{
         question=_question;
         salt=_salt;
         answer=_answer; 
-        //I could've passed the encoded answer in the Helper contract(maybe its more secure) but it would 
-        //have been harder to test if I want to deploy right away through remix.  
     }
-
-    mapping(address=>bool) private AlreadyAwarded;
 
     function readQuestion() public view returns(string memory) {
         return question;
     } 
 
+     function sendWei() public payable {
+    } 
     function transferFunds() private{
-        require(AlreadyAwarded[msg.sender]==false,"You have alreqady been awarded");
         if(address(this).balance>0){
          (bool success,)= payable(msg.sender).call{value: address(this).balance}("");
          emit TransactionAttempt(msg.sender,address(this).balance);
          require(success, "Transaction failed");
-         AlreadyAwarded[msg.sender]=true;
          emit SuccessfulyTransfered(msg.sender,address(this).balance);
         }else{
             emit NotEnoughBalance();

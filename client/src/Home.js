@@ -6,7 +6,7 @@ import "./Home.scss";
 function Home() {
   const navigate = useNavigate();
   const navigateToProfile = () => {
-    navigate("/profile");
+    navigate("/guess");
   };
   return (
     <div className="App">
