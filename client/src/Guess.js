@@ -3,6 +3,7 @@ import "./Guess.scss";
 import { ethers } from "ethers";
 import confetti from "./assets/confetti.gif";
 import { Link } from "react-router-dom";
+import GuessForm from "./GuessForm";
 import {
   ABI,
   factoryABI,
@@ -36,7 +37,7 @@ function Guess() {
 
   // const question = useContractRead({
   //   address: contractAddress,
-  //   abi: ABI,
+  //   abi: ABI,s
   //   scopeKey: "wagmi",
   //   functionName: "readQuestion",
   // });
@@ -110,10 +111,6 @@ function Guess() {
     }
   };
 
-  const handleInut = (e) => {
-    setGuess(e.target.value);
-  };
-
   return (
     <div className="container">
       {activeConfetti ? (
@@ -121,34 +118,23 @@ function Guess() {
       ) : null}
       <div className="info-wrap">
         <div className="info-items">
-          <div>🤑You can win: {contractBalance} </div>
           <button className="guess-submit" onClick={(e) => chargeContract(e)}>
             Send ETH to Contract
           </button>
-          <div>🤑 {userBalance} </div>
-          <div>🤔 {question}</div>
-          <div className="utilities">
-            <div className="guess-form">
-              <p className="market-title"> Take a Guess 💰 </p>
-              <form onSubmit={takeAGuess} className="form-items">
-                <input onChange={handleInut} className="guess-input" />
-                {wrongAnswer ? (
-                  <div className="error-msg">Wrong answer</div>
-                ) : (
-                  <></>
-                )}
-                {correctAnswer ? (
-                  <div className="correct-msg">Correct answer</div>
-                ) : (
-                  <></>
-                )}
-                <input type="submit" name="Guess" className="guess-submit" />
-              </form>
-            </div>
-            <Link to="/create" className="create-btn">
-              Create Quizz
-            </Link>
+          <Link to="/create" className="create-btn">
+            Create Quizz
+          </Link>
+          <div className="balance-info">
+            <div>🤑You can win: {contractBalance} </div>
+            <div>🤑 {userBalance} </div>
           </div>
+          <GuessForm
+            onSubmit={takeAGuess}
+            setGuess={setGuess}
+            wrongAnswer={wrongAnswer}
+            correctAnswer={correctAnswer}
+            question={question}
+          />
         </div>
       </div>
     </div>

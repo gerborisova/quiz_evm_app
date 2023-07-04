@@ -229,7 +229,7 @@ const factoryABI = [
     type: "function",
   },
 ];
-const contractAddress = "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00";
-const factoryContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const contractAddress = "0xF32D39ff9f6Aa7a7A64d7a4F00a54826Ef791a55";
+const factoryContractAddress = "0xE3011A37A904aB90C8881a99BD1F6E21401f1522";
 
 export { ABI, contractAddress, factoryContractAddress, factoryABI };
