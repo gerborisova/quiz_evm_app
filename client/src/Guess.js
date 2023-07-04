@@ -26,9 +26,6 @@ function Guess() {
   const [question, setQuestion] = useState("");
 
   useEffect(() => {
-    setCorrectAnswer(false);
-    setWrongAnswer(false);
-    setConfetti(false);
     connectWallet();
   }, []);
 
@@ -36,6 +33,13 @@ function Guess() {
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });
+
+  // const question = useContractRead({
+  //   address: contractAddress,
+  //   abi: ABI,
+  //   scopeKey: "wagmi",
+  //   functionName: "readQuestion",
+  // });
 
   const connectWallet = () => {
     provider
@@ -76,6 +80,7 @@ function Guess() {
       console.log(err.message);
     }
   };
+
   const takeAGuess = async (e) => {
     e.preventDefault();
     setWrongAnswer(false);
@@ -90,7 +95,7 @@ function Guess() {
       }, "3000");
     } catch (err) {
       setWrongAnswer(true);
-      console.log(err);
+      console.log(err.message.message);
     }
   };
 

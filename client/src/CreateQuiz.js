@@ -41,10 +41,10 @@ function CreateQuiz() {
   };
 
   const getQuizzesFromFactory = async () => {
-    console.log("blalala");
     try {
       const results = await factoryContract.getCreatedQuizzes();
       await results.wait();
+      console.log("quizzes", results);
       setQuizzes(results);
     } catch (err) {
       console.log("e", err);
